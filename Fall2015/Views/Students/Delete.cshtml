@@ -1,0 +1,43 @@
+﻿@using Fall2015.Models;
+
+@model Student
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <img src="@Model.ImageFilePath" alt="Profile image" style="border: 2px solid gray"/>
+
+    <div class="blockcenter gray-round">
+
+        <div class="form-group">
+            <label>Firstname</label>
+            @Html.TextBoxFor(a => a.Firstname, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Lastname</label>
+            @Html.TextBoxFor(a => a.Lastname, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            @Html.TextBoxFor(a => a.Email, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Mobile Phone</label>
+            @Html.TextBoxFor(a => a.MobilePhone, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <input type="submit" value="Delete" class="btn btn-default" id="saveButton"/>
+    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-default", @id = "saveButton" })
+    
+}

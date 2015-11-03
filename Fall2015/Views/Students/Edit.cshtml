@@ -1,0 +1,21 @@
+﻿@using Fall2015.Models;
+@model Student
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary()
+
+    <img src="@Model.ImageFilePath" alt="Profile image" style="border: 2px solid gray" />
+
+    @Html.HiddenFor(a => a.StudentId)
+    @Html.HiddenFor(a => a.ImageFilePath)
+    @Html.Partial("_CreateEditStudent")
+
+    <input type="file" name="image"/>
+}
